@@ -3,7 +3,7 @@
 ## Häufig verwendete HTML-Elemente
 
 -   `<div>` - Container für andere Elemente
--   `<h1>, <h2>, <h3>` - Überschriften unterschiedlicher Wichtigkeit
+-   `<h1>, <h2>, <h3>` - Überschriften unterschiedlicher Ebenen
 -   `<p>` - Textabsatz
 -   `<span>` - Inline-Textabschnitt
 -   `<select>` und `<option>` - Dropdown-Menü mit Auswahlmöglichkeiten
