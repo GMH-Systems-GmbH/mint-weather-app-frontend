@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Meine Wetter App</title>
+        <!-- Die CSS-Datei ist bereits eingebunden -->
+        <link
+            rel="stylesheet"
+            href="/src/styles.css"
+        />
+    </head>
+    <body>
+        <!-- Hauptcontainer für unsere App -->
+        <div class="container">
+            <!-- AUFGABE 1: Kopfzeile mit Titel erstellen -->
+            <header>
+                <div class="app-header">
+                    <!-- Hier kommt die Überschrift der App hin -->
+
+                    <!-- Der Theme-Switch ist bereits implementiert -->
+                    <div class="theme-switch-wrapper">
+                        <label
+                            class="theme-switch"
+                            for="theme-toggle"
+                        >
+                            <input
+                                type="checkbox"
+                                id="theme-toggle"
+                            />
+                            <span class="slider"></span>
+                        </label>
+                        <span
+                            class="dark-mode-icon"
+                            id="theme-icon"
+                            >☀️</span
+                        >
+                    </div>
+                </div>
+
+                <!-- AUFGABE 2: Stadt-Auswahl erstellen -->
+                <div class="city-selector">
+                    <!-- Hier kommt das Dropdown-Menü hin -->
+                </div>
+            </header>
+
+            <!-- AUFGABE 3: Bereich für die Wetteranzeige -->
+            <div
+                id="weather-container"
+                class="hidden"
+            >
+                <!-- Hier kommt der Bereich für das aktuelle Wetter hin -->
+
+                <!-- AUFGABE 4: Bereich für die 3-Tage Vorhersage -->
+            </div>
+
+            <!-- AUFGABE 5: Lade-Anzeige erstellen -->
+            <!-- Hier kommt die Ladeanzeige hin -->
+
+            <!-- AUFGABE 6: Fehlermeldung erstellen -->
+            <!-- Hier kommt die Fehlermeldung hin -->
+        </div>
+
+        <!-- Die JavaScript-Datei ist bereits eingebunden -->
+        <script src="/src/app.js"></script>
+    </body>
+</html>

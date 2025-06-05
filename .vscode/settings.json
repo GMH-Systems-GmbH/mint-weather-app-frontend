@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/cedbccbf-ff15-4627-bea8-ad7f58cf91b8/resourceGroups/SYS-Mint-Weather-App/providers/Microsoft.Web/sites/mint-weather-app-gmhsystems",
+    "appService.deploySubpath": "."
+}
