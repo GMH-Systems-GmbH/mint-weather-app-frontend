@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // API URL - nicht ändern
+    // API URL - ersetze die Basis-URL mit deiner eigenen Azure Function URL
     const apiBaseUrl = 'https://sys-mint-weather-app-gs.azurewebsites.net/api';
 
-    // DOM Elemente - hier finden wir alle HTML-Elemente, die wir ansprechen wollen
+    // DOM Elemente
     const cityDropdown = document.getElementById('city-dropdown');
     const weatherContainer = document.getElementById('weather-container');
     const loadingIndicator = document.getElementById('loading-indicator');
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
 
-    // Theme Management - bereits implementiert
+    // Theme Management
     initTheme();
 
     themeToggle.addEventListener('change', () => {
@@ -51,16 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lade Städteliste beim Start
     loadCities();
 
-
-    /**  AUFGABE 1: Städte zum Dropdown hinzufügen */
-    function populateCityDropdown(cities) {
-        // Entferne alle bestehenden Optionen außer der ersten
-        while (cityDropdown.options.length > 1) {
-            cityDropdown.remove(1);
+    // Event Listener für Stadt-Änderungen
+    cityDropdown.addEventListener('change', () => {
+        const selectedCity = cityDropdown.value;
+        if (selectedCity) {
+            loadWeatherData(selectedCity);
+        } else {
+            weatherContainer.classList.add('hidden');
         }
-
-        //Hier code für das Einfügen der Städte in das dropdown einfügen  
-    }
+    });
 
     // Lade verfügbare Städte
     function loadCities() {
@@ -83,6 +82,22 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
+    // Städte in Dropdown einfügen
+    function populateCityDropdown(cities) {
+        // Entferne alle bestehenden Optionen außer der ersten
+        while (cityDropdown.options.length > 1) {
+            cityDropdown.remove(1);
+        }
+
+        // Füge neue Optionen hinzu
+        cities.forEach((city) => {
+            const option = document.createElement('option');
+            option.value = city.id;
+            option.textContent = city.name;
+            cityDropdown.appendChild(option);
+        });
+    }
+
     // Lade Wetterdaten für ausgewählte Stadt
     function loadWeatherData(city) {
         showLoading();
@@ -96,11 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 return response.json();
             })
             .then((weatherData) => {
-                setTimeout(() => {
-                    hideLoading();
-                    weatherContainer.classList.remove('hidden');
-                    updateWeatherDisplay(weatherData);
-                }, 2000); // 500 Millisekunden = 0,5 Sekunden
+                hideLoading();
+                weatherContainer.classList.remove('hidden');
+                updateWeatherDisplay(weatherData);
             })
             .catch((error) => {
                 console.error('error-loading-data', error);
@@ -108,44 +121,38 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    /** AUFGABE 2: Wetterdaten anzeigen */ 
+    // UI mit Wetterdaten aktualisieren
     function updateWeatherDisplay(weatherData) {
-        // Setze Stadt und Land
-        
-        // Setze Wetterbedingungen und Temperatur
+        // Standort-Informationen
+        cityNameElement.textContent = weatherData.location.city;
+        countryElement.textContent = weatherData.location.country;
+
+        // Aktuelle Wetterdaten
         const current = weatherData.current;
-       
+        conditionIconElement.setAttribute('data-condition', current.condition.code);
+        conditionTextElement.textContent = current.condition.description;
+        currentTempElement.textContent = `${current.temperature.value}° ${
+            current.temperature.unit === 'celsius' ? 'C' : 'F'
+        }`;
+        humidityElement.textContent = `${current.humidity}%`;
+        pressureElement.textContent = `${current.pressure} hPa`;
+        windElement.textContent = `${current.wind.speed} ${current.wind.unit} ${current.wind.direction}`;
 
-        // Wetter-Icon, Textbeschreibung, Temperatur
-
-
-        // Luftfeuchtigkeit, Luftdruck, Wind
-
-        
-        // Aktualisiere die Vorhersage
+        // Wettervorhersage
         updateForecast(weatherData.forecast);
     }
 
-    /**  AUFGABE 3: Event Listener für die Stadtauswahl */
-    // Hier code für Event Listener einfügen
-    
-
-    /**  AUFGABE 4: Wetterkarten erstellen */
+    // Vorhersage-Karten aktualisieren
     function updateForecast(forecastData) {
-        // Leere den Container
         forecastCardsContainer.innerHTML = '';
 
-        // Für jeden Tag in der Vorhersage
         forecastData.forEach((day) => {
-            // Erstelle eine neue Karte
             const card = document.createElement('div');
             card.className = 'forecast-card';
 
-            // Formatiere das Datum
             const date = new Date(day.date);
             const dateOptions = { weekday: 'long', day: 'numeric', month: 'long' };
 
-            // Fülle die Karte mit Inhalt
             card.innerHTML = `
                 <div class="forecast-date">${date.toLocaleDateString('de-DE', dateOptions)}</div>
                 <div class="weather-icon forecast-icon" data-condition="${
@@ -174,28 +181,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
-            // Füge die Karte zum Container hinzu
-            // Die Karte wurde bereits für dich erstellt
-            
+            forecastCardsContainer.appendChild(card);
         });
     }
 
-    /**  AUFGABE 5: Lade- und Fehleranzeigen */
+    // Hilfsfunktionen für UI-Status
     function showLoading() {
-        // 1. Zeige die Ladeanzeige an (entferne die Klasse 'hidden')
-    
-        // 2. Verstecke die Fehlermeldung (füge die Klasse 'hidden' hinzu)
+        loadingIndicator.classList.remove('hidden');
+        errorMessage.classList.add('hidden');
     }
 
     function hideLoading() {
-        // Verstecke die Ladeanzeige (füge die Klasse 'hidden' hinzu)
+        loadingIndicator.classList.add('hidden');
     }
 
     function showError() {
-        // 1. Verstecke die Ladeanzeige
-        
-        // 2. Zeige die Fehlermeldung an
-        
-        // 3. Verstecke den Wetterbereich
+        loadingIndicator.classList.add('hidden');
+        errorMessage.classList.remove('hidden');
+        weatherContainer.classList.add('hidden');
     }
 });
