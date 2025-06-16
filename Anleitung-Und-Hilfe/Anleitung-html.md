@@ -26,12 +26,19 @@ Ein HTML-Tag sieht so aus: `<tagname>Inhalt</tagname>`
 <br>
 
 <details>
-<summary>Hinweise</summary> 
+<summary><strong>Hinweise <-- Anklicken um Hilfe zu öffnen</strong></summary> 
 
 Es gibt die Abschnittsüberschriften Elemente `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>` und `<h6>`.
 
 Das ID-Attribut wird immer im öffnenden Tag eines HTML-Elements vergeben, zum Beispiel nach dem Tag-Namen und vor dem schließenden spitzen Klammerzeichen.
 Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
+
+**Indirektes Codebeispiel:**
+```html
+<!-- AUFGABE 1: Überschrift für unsere App erstellen -->
+<h1 id="...">Dein App-Name</h1>
+```
+
 
 </details>
 
@@ -54,13 +61,22 @@ Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
 <br>
 
 <details>
-<summary><strong>Hinweise</strong></summary>
+<summary><strong>Hinweise <-- Anklicken um Hilfe zu öffnen</strong></summary>
 
 - Für einen **Container** verwendest du das `<div>`-Element.
 - Die **ID** und die **Klasse** werden beide im öffnenden Tag des **Container**s (also im `<div>`) angegeben. Mehrere Attribute werden mit Leerzeichen getrennt.
 - Die Klasse `hidden` sorgt dafür, dass der **Container** zunächst nicht sichtbar ist.
 - Der angezeigte Text zum Ladevorgang steht als Inhalt zwischen dem öffnenden und schließenden `<div>`-Tag.
 - Du kannst als Text zum Beispiel "Daten werden geladen..." oder eine ähnliche Formulierung wählen.
+
+
+**Indirektes Codebeispiel:**
+```html
+<!-- AUFGABE 2: Lade-Anzeige erstellen -->
+<div id="..." class="...">Text für die Ladeanzeige</div>
+```
+
+
 </details>
 
 <br>
@@ -79,13 +95,20 @@ Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
 <br>
 
 <details>
-<summary><strong>Hinweise</strong></summary>
+<summary><strong>Hinweise <-- Anklicken um Hilfe zu öffnen</strong></summary>
 
 - Verwende für den **Container** das `<div>`-Element.
 - Die **ID** und die **Klasse** werden beide im öffnenden Tag des **Container**s angegeben. Mehrere Attribute werden mit Leerzeichen getrennt.
 - Die Klasse `hidden` sorgt dafür, dass der Fehlerbereich zunächst nicht sichtbar ist.
 - Der Text mit der Fehlermeldung steht zwischen dem öffnenden und schließenden `<div>`-Tag.
 - Die genaue Formulierung der Fehlermeldung kannst du selbst wählen, sie sollte aber deutlich machen, dass ein Fehler aufgetreten ist.
+
+**Indirektes Codebeispiel:**
+```html
+<!-- AUFGABE 3: Fehlermeldung erstellen -->
+<div id="..." class="...">Text für die Fehlermeldung</div>
+```
+
 </details>
 
 <br>
@@ -104,12 +127,22 @@ Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
 <br>
 
 <details>
-<summary><strong>Hinweise</strong></summary>
+<summary><strong>Hinweise <-- Anklicken um Hilfe zu öffnen</strong></summary>
 
 - Für ein **Dropwdown**-Menü verwendest du das `<select>`-Element.
 - Die einzelnen Auswahlmöglichkeiten im **Dropwdown**-Menü werden mit `<option>`-Elementen erstellt.
 - Der Text, den der Nutzer sieht (z.B. "Stadt auswählen..."), steht zwischen dem öffnenden und schließenden `<option>`-Tag.
 - Achte darauf, dass jedes `<option>`-Element innerhalb des `<select>`-Elements steht.
+
+
+**Indirektes Codebeispiel:**
+```html
+<!-- AUFGABE 4: Stadt-Auswahl erstellen -->
+<select id="...">
+  <option value="">Text für die erste Option</option>
+  <!-- Weitere Optionen folgen später -->
+</select>
+```
 
 </details>
 
@@ -122,11 +155,86 @@ Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
 ---
 
 ### Aufgabe 5: Bereich für aktuelles Wetter erstellen
+
 1. Suche den Kommentar `<!-- AUFGABE 5: Bereich für die Wetteranzeige -->`.
-2. Erstelle direkt nach dieser Zeile einen **Container** für das aktuelle Wetter mit der ID `current-weather`.
-3. Dieser **Container** sollte drei weitere **Container** umfassen:
+2. Du befindest dich grade in dem Container welcher das Aktuelle Wetter beinhalten wird. 
+3. Erstelle unter dem Kommentar `<!-- AUFGABE 5: Bereich für die Wetteranzeige -->` **zwei weitere Container**:
+   - Einen für die Standort-Informationen
+   - Einen für die aktuellen Wetterbedingungen
+
 
 ---
+
+#### Container 1: Standort-Informationen
+
+- Erstelle einen Container mit der ID `location-info` für die Standort-Informationen.
+- In diesen Container gehören:
+  - Eine Überschrift zweiter Ebene für den Stadtnamen mit der ID `city-name`
+  - Ein Absatz für das Land mit der ID `country`
+
+<details>
+
+<summary><strong>Hinweise <-- Anklicken um Hilfe zu öffnen</strong></summary>
+
+- Lege einen neuen `<div>` im vorhandenen äußeren Container an und gib ihm eine passende ID (`location-info`).
+- In diesen Container gehören:
+  - Eine Überschrift der zweiten Ebene (`<h2>`) für den Stadtnamen (mit eigener ID: `city-name`)
+  - Ein Absatz (`<p>`) für das Land (mit eigener ID: `country`)
+- Beide Elemente bleiben zunächst leer – der Inhalt wird später automatisch durch JavaScript eingesetzt.
+
+**Indirektes Codebeispiel:**
+```html
+<div id="...">
+  <h2 id="..."></h2>
+  <p id="..."></p>
+</div>
+```
+
+</details>
+
+---
+
+#### Container 2: Aktuelle Wetterbedingungen
+
+- Erstelle einen weiteren Container, mit der passenden ID `curent-conditions`, für die aktuellen Wetterbedingungen.
+- Dieser Container enthält:
+  - Einen Container für das Wettersymbol mit der ID `condition-icon` und der Klasse `weather-icon` für das Symbol
+  - Einen Container für die Wetterdetails. Dieser Bereich enthält zwei Absätze(`<p>`):
+    - Einen für die Wetterbeschreibung mit der ID `condition-text`
+    - Einen für die aktuelle Temperatur `current-temp`
+
+
+<details>
+
+<summary><strong>Hinweise <-- Anklicken um Hilfe zu öffnen</strong></summary>
+
+- Direkt nach dem Standort-Container erstellst du einen weiteren `<div>` mit der ID `current-conditions`.
+- In diesen kommen:
+  - Ein leeres `<div>` für das Wettersymbol mit der ID `condition-icon` und Klasse `weather-icon`
+  - Ein weiterer `<div>` für die Wetterdetails, mit der ID `condition-details` und darin zwei Absätze (`<p>`):
+    - Einer für die Wetterbeschreibung mit der ID `condition-text`
+    - Einer für die aktuelle Temperatur mit der ID `current-temp`
+- Lasse auch hier alle Felder leer.
+
+**Indirektes Codebeispiel:**  
+```html
+<div id="...">
+  <div id="..." class="..."></div>
+  <div id="...">
+    <p id="..."></p>
+    <p id="..."></p>
+  </div>
+</div>
+```
+
+</details>
+
+<!-- ### Aufgabe 5: Bereich für aktuelles Wetter erstellen
+1. Suche den Kommentar `AUFGABE 5: Bereich für die Wetteranzeige`.
+2. Erstelle direkt nach dieser Zeile einen **Container** für das aktuelle Wetter mit der ID `current-weather`.
+3. Dieser **Container** sollte drei weitere **Container** umfassen: 
+<!-- 
+
 
 #### Einen **Container** (Standort-Informationen) mit der ID: `location-info`
 - Eine Überschrift zweiter Ebene für den Stadtnamen (ID: `city-name`)
@@ -144,7 +252,7 @@ Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
 
 </details>
 
----
+
 
 #### Einen **Container** (Aktuelle Wetterbedingungen) mit der ID: `current-conditions`
 - Ein **Container** für das Wettersymbol (ID: `condition-icon`, Klasse: `weather-icon`)
@@ -165,7 +273,7 @@ Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
 
 </details>
 
----
+
 
 #### Einen **Container** (Weitere Wetterdetails) mit der ID: `current-details`
 - Erstelle einen **Container** mit der Klasse `detail-item`.
@@ -193,25 +301,25 @@ Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
 
 </details>
 
----
+
 
 **Ressourcen:**
 - [Container-Elemente: div](https://developer.mozilla.org/de/docs/Web/HTML/Element/div)
 - [Textabsätze: p](https://developer.mozilla.org/de/docs/Web/HTML/Element/p)
-- [Inline-Textformatierung: span](https://developer.mozilla.org/de/docs/Web/HTML/Element/span)
+- [Inline-Textformatierung: span](https://developer.mozilla.org/de/docs/Web/HTML/Element/span) -->
 
 ---
 
 ### Aufgabe 6: Bereich für die 3-Tage-Vorhersage erstellen
 1. Suche den Kommentar `<!-- AUFGABE 6: Bereich für die 3-Tage Vorhersage -->`.
 2. Erstelle unter diesem Kommentar einen **Container** mit der ID `forecast-container`.
-3. Füge eine Überschrift dritter Ebene mit dem Text "3-Tage Vorhersage" hinzu.
-4. Erstelle einen leeren **Container** mit der ID `forecast-cards`, in den später die Vorhersagekarten eingefügt werden. Dieser **Container** enthält noch keinen Inhalt.
+3. Füge innerhalb dieses Containers eine Überschrift dritter Ebene mit dem Text "3-Tage Vorhersage" hinzu.
+4. Erstelle innerhalb des containers einen weiteren leeren **Container** mit der ID `forecast-cards`, in den später die Vorhersagekarten eingefügt werden. Dieser **Container** enthält noch keinen Inhalt.
 
 <br>
 
 <details>
-<summary><strong>Hinweise</strong></summary>
+<summary><strong>Hinweise <-- Anklicken um Hilfe zu öffnen</strong></summary>
 
 - Für einen **Container** verwendest du meist das `<div>`-Element.
 - Die **ID** eines **Containers** wird wie gewohnt im öffnenden Tag vergeben.
@@ -219,6 +327,16 @@ Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
 - Der Text, der in der Überschrift erscheinen soll, kommt zwischen die öffnenden und schließenden Überschriften-Tags.
 - Ein "leerer **Container**" bedeutet, dass du das Element zwar erstellst, aber noch keinen Inhalt hineinschreibst – dieser wird später durch JavaScript ergänzt.
 - Achte darauf, dass die Struktur und Reihenfolge wie in der Aufgabenstellung eingehalten wird.
+
+**Indirektes Codebeispiel:**
+```html
+<!-- AUFGABE 6: Bereich für die 3-Tage Vorhersage -->
+<div id="...">
+  <h3>Text für die Überschrift</h3>
+  <div id="..."></div>
+</div>
+```
+
 </details>
 
 <br>

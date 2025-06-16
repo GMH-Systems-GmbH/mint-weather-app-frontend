@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
     cityDropdown.addEventListener('change', () => {
         const selectedCity = cityDropdown.value;
         if (selectedCity) {
+            // Speichere die Auswahl im localStorage
+            localStorage.setItem('selectedCityId', selectedCity);
             loadWeatherData(selectedCity);
         } else {
             weatherContainer.classList.add('hidden');
@@ -96,6 +98,17 @@ document.addEventListener('DOMContentLoaded', () => {
             option.textContent = city.name;
             cityDropdown.appendChild(option);
         });
+
+        const savedCityId = localStorage.getItem('selectedCityId');
+        if (savedCityId) {
+            // Gibt es diese Stadt in der aktuellen Liste?
+            const found = Array.from(cityDropdown.options).some((opt) => opt.value === savedCityId);
+            if (found) {
+                cityDropdown.value = savedCityId;
+                // Wetterdaten automatisch laden
+                loadWeatherData(savedCityId);
+            }
+        }
     }
 
     // Lade Wetterdaten für ausgewählte Stadt
@@ -124,22 +137,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // UI mit Wetterdaten aktualisieren
     function updateWeatherDisplay(weatherData) {
         // Standort-Informationen
-        cityNameElement.textContent = weatherData.location.city;
-        countryElement.textContent = weatherData.location.country;
 
-        // Aktuelle Wetterdaten
-        const current = weatherData.current;
-        conditionIconElement.setAttribute('data-condition', current.condition.code);
-        conditionTextElement.textContent = current.condition.description;
-        currentTempElement.textContent = `${current.temperature.value}° ${
-            current.temperature.unit === 'celsius' ? 'C' : 'F'
-        }`;
-        humidityElement.textContent = `${current.humidity}%`;
-        pressureElement.textContent = `${current.pressure} hPa`;
-        windElement.textContent = `${current.wind.speed} ${current.wind.unit} ${current.wind.direction}`;
+        try {
+            cityNameElement.textContent = weatherData.location.city;
+            countryElement.textContent = weatherData.location.country;
+
+            // Aktuelle Wetterdaten
+            const current = weatherData.current;
+            conditionIconElement.setAttribute('data-condition', current.condition.code);
+            conditionTextElement.textContent = current.condition.description;
+            currentTempElement.textContent = `${current.temperature.value}° ${
+                current.temperature.unit === 'celsius' ? 'C' : 'F'
+            }`;
+            humidityElement.textContent = `${current.humidity}%`;
+            pressureElement.textContent = `${current.pressure} hPa`;
+            windElement.textContent = `${current.wind.speed} ${current.wind.unit} ${current.wind.direction}`;
+        } catch (error) {}
 
         // Wettervorhersage
-        updateForecast(weatherData.forecast);
+        try {
+            updateForecast(weatherData.forecast);
+        } catch (e) {}
     }
 
     // Vorhersage-Karten aktualisieren
