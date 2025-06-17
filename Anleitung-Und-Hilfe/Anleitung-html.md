@@ -221,10 +221,10 @@ Speichere deine Änderungen mit dem Tastenkürzel `Strg + S`!
 
 <summary><strong>Hinweise <-- Anklicken um Hilfe zu öffnen</strong></summary>
 
-- Direkt nach dem Standort-Container erstellst du einen weiteren `<div>` mit der ID `current-conditions`.
+- Direkt nach dem Standort-Container erstellst du einen weiteren Container `<div>` mit der ID `current-conditions`.
 - In diesen kommen:
-  - Ein leeres `<div>` für das Wettersymbol mit der ID `condition-icon` und Klasse `weather-icon`
-  - Ein weiterer `<div>` für die Wetterdetails, mit der ID `condition-details` und darin zwei Absätze (`<p>`):
+  - Ein leere Container `<div>` für das Wettersymbol mit der ID `condition-icon` und Klasse `weather-icon`
+  - Ein weiterer Container `<div>` für die Wetterdetails, mit der ID `condition-details` und darin zwei Absätze (`<p>`):
     - Einer für die Wetterbeschreibung mit der ID `condition-text`
     - Einer für die aktuelle Temperatur mit der ID `current-temp`
 - Lasse auch hier alle Felder leer.
