@@ -207,7 +207,7 @@ Speichere deine Änderungen mit dem Tastenkürzel `Strg + S`!
 
 #### Container 2: Aktuelle Wetterbedingungen
 
-3.3 Erstelle einen weiteren Container in dem äußeren Container, mit der folgenden ID `curent-conditions`, für die aktuellen Wetterbedingungen.
+3.3 Erstelle einen weiteren Container in dem äußeren Container, mit der folgenden ID `current-conditions`, für die aktuellen Wetterbedingungen.
 
 3.4 Dieser Container enthält zwei weitere Container:
   - Einen Container für das Wettersymbol mit der ID `condition-icon` und der Klasse `weather-icon` für das Symbol
