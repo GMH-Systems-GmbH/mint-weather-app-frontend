@@ -18,10 +18,11 @@ Ein HTML-Tag sieht so aus: `<tagname>Inhalt</tagname>`
 ## Die Aufgaben 
 
 ### Aufgabe 1: Überschrift für unsere App erstellen
-1. Öffne die Datei `index.html` in dem Code-Editor (Visual Studio Code).
-2. Suche den Kommentar `<!-- AUFGABE 1: Überschrift für unsere App erstellen -->`.
-3. Erstelle unter diesem Kommentar eine Abschnittsüberschrift erster Ebene mit der ID `app-title`.
-4. Gib deiner Wetter-App einen Namen in dem du in das Überschriftsegment schreibst (z.B. <>"Wetter App"</>).
+1. Suche den Kommentar `<!-- AUFGABE 1: Überschrift für unsere App erstellen -->`.
+2. Erstelle unter diesem Kommentar eine Abschnittsüberschrift erster Ebene und vergebe dem Element eine ID `app-title`.
+3. Gib deiner Wetter-App einen Namen in dem du in das Überschriftsegment deinen Wetter App Namen schreibst (z.B. <> Wetter App </>).
+
+Speichere deine Änderungen mit dem Tastenkürzel `Strg + S`!
 
 <br>
 
@@ -54,9 +55,11 @@ Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
 ---
 
 ### Aufgabe 2: Lade-Anzeige erstellen
-1. Suche den Kommentar `<!-- AUFGABE 2: Lade-Anzeige erstellen -->`. Scrolle dafür nach fast ganz unten in dem HTML Dokument (`index.html`).
-2. Erstelle unter diesem Kommentar einen **Container** mit der ID `loading-indicator` und der Klasse `hidden`.
-3. Füge einen Text ein, der anzeigt, dass Daten geladen werden (z.B. "Daten werden geladen...").
+1. Suche den Kommentar `<!-- AUFGABE 2: Lade-Anzeige erstellen -->`. Scrolle dafür nach fast ganz unten in dem HTML Dokument.
+2. Erstelle unter diesem Kommentar einen **Container** und gebe ihm die ID `loading-indicator` sowie auch die Klasse `hidden`.
+3. Füge in dem Container einen Text ein, der anzeigt, dass Daten geladen werden (z.B. "Daten werden geladen...").
+
+Speichere deine Änderungen mit dem Tastenkürzel `Strg + S`!
 
 <br>
 
@@ -88,9 +91,11 @@ Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
 ---
 
 ### Aufgabe 3: Fehlermeldung erstellen
-1. Suche den Kommentar `<!-- AUFGABE 3: Fehlermeldung erstellen -->`. Diesen findest du direkt unter der Aufgabe 5.
+1. Suche den Kommentar `<!-- AUFGABE 3: Fehlermeldung erstellen -->`. Diesen findest du direkt unter der Aufgabe 2.
 2. Erstelle unter diesem Kommentar einen **Container** mit der ID `error-message` und der Klasse `hidden`.
 3. Füge einen Text ein, der Benutzern mitteilt, dass ein Fehler aufgetreten ist (z.B. "Fehler beim Laden der Wetterdaten. Bitte versuche es später erneut.").
+
+Speichere deine Änderungen mit dem Tastenkürzel `Strg + S`!
 
 <br>
 
@@ -123,6 +128,8 @@ Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
 1. Suche den Kommentar `<!-- AUFGABE 4: Stadt-Auswahl erstellen -->`.
 2. Erstelle unter diesem Kommentar ein **Dropwdown**-Menü mit der ID `city-dropdown`.
 3. Füge eine erste **Option** mit dem Text "Stadt auswählen..." hinzu.
+
+Speichere deine Änderungen mit dem Tastenkürzel `Strg + S`!
 
 <br>
 
@@ -167,20 +174,24 @@ Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
 
 #### Container 1: Standort-Informationen
 
-- Erstelle einen Container mit der ID `location-info` für die Standort-Informationen.
-- In diesen Container gehören:
+3.1 Erstelle einen Container mit der ID `location-info` für die Standort-Informationen.
+
+3.2 In diesen Container müssen dann folgende Elemente dargestellt bzw. hinzugefügt werden:
   - Eine Überschrift zweiter Ebene für den Stadtnamen mit der ID `city-name`
   - Ein Absatz für das Land mit der ID `country`
+
+Speichere deine Änderungen mit dem Tastenkürzel `Strg + S`!
 
 <details>
 
 <summary><strong>Hinweise <-- Anklicken um Hilfe zu öffnen</strong></summary>
 
-- Lege einen neuen `<div>` im vorhandenen äußeren Container an und gib ihm eine passende ID (`location-info`).
-- In diesen Container gehören:
-  - Eine Überschrift der zweiten Ebene (`<h2>`) für den Stadtnamen (mit eigener ID: `city-name`)
-  - Ein Absatz (`<p>`) für das Land (mit eigener ID: `country`)
-- Beide Elemente bleiben zunächst leer – der Inhalt wird später automatisch durch JavaScript eingesetzt.
+- Lege einen neuen Container `<div>` im vorhandenen äußeren Container an und gib ihm folgende passende ID (`location-info`).
+- In diesen Container müssen nun folgende Elementen dargestellt bzw. hinzugefügt werden:
+  - Eine Überschrift der zweiten Ebene (`<h2>`) für den Stadtnamen und vergebe dem Element die ID: `city-name`
+  - Ein Absatz (`<p>`) für das Land und vergebe dem Element die ID: `country`
+- Beide Elemente (Die Überschrift und der Absatz) bleiben zunächst leer – der Inhalt wird später automatisch durch JavaScript eingesetzt.
+
 
 **Indirektes Codebeispiel:**
 ```html
@@ -196,13 +207,15 @@ Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
 
 #### Container 2: Aktuelle Wetterbedingungen
 
-- Erstelle einen weiteren Container, mit der passenden ID `curent-conditions`, für die aktuellen Wetterbedingungen.
-- Dieser Container enthält:
+3.3 Erstelle einen weiteren Container in dem äußeren Container, mit der folgenden ID `curent-conditions`, für die aktuellen Wetterbedingungen.
+
+3.4 Dieser Container enthält zwei weitere Container:
   - Einen Container für das Wettersymbol mit der ID `condition-icon` und der Klasse `weather-icon` für das Symbol
-  - Einen Container für die Wetterdetails. Dieser Bereich enthält zwei Absätze(`<p>`):
+  - Einen Container für die Wetterdetails. Dieser Container enthält zwei Absätze(`<p>`):
     - Einen für die Wetterbeschreibung mit der ID `condition-text`
     - Einen für die aktuelle Temperatur `current-temp`
 
+Speichere deine Änderungen mit dem Tastenkürzel `Strg + S`!
 
 <details>
 
@@ -229,85 +242,6 @@ Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
 
 </details>
 
-<!-- ### Aufgabe 5: Bereich für aktuelles Wetter erstellen
-1. Suche den Kommentar `AUFGABE 5: Bereich für die Wetteranzeige`.
-2. Erstelle direkt nach dieser Zeile einen **Container** für das aktuelle Wetter mit der ID `current-weather`.
-3. Dieser **Container** sollte drei weitere **Container** umfassen: 
-<!-- 
-
-
-#### Einen **Container** (Standort-Informationen) mit der ID: `location-info`
-- Eine Überschrift zweiter Ebene für den Stadtnamen (ID: `city-name`)
-- Ein **Absatz** für das Land (ID: `country`)
-
-<details>
-<summary><strong>Hinweise</strong></summary>
-
-- Erstelle einen neuen **Container** (`<div>...</div>`) mit der passenden ID für Standort-Informationen.
-- In diesen **Container** gehören zwei Elemente:
-  - Eine Überschrift zweiter Ebene (`<h2>...</h2>`). Gib dieser Überschrift die richtige ID für den Stadtnamen.
-  - Ein **Absatz**-Element für das Land(`<p>...</p>`). Achte auch hier auf die richtige ID.
-- Die Überschrift steht typischerweise über dem **Absatz**.
-- Beide Elemente werden später mit JavaScript befüllt.
-
-</details>
-
-
-
-#### Einen **Container** (Aktuelle Wetterbedingungen) mit der ID: `current-conditions`
-- Ein **Container** für das Wettersymbol (ID: `condition-icon`, Klasse: `weather-icon`)
-- Ein **Container** für Detailinformationen (ID: `condition-details`) mit:
-  - Einem **Absatz** für die Wetterbeschreibung (ID: `condition-text`)
-  - Einem **Absatz** für die aktuelle Temperatur (ID: `current-temp`)
-
-<details>
-<summary><strong>Hinweise</strong></summary>
-
-- Lege einen weiteren **Container** für die aktuellen Wetterbedingungen an und vergib die passende ID.
-- Verwende für das Wettersymbol einen weiteren **Container**. Diesem **Container** gibst du die passende ID und zusätzlich die Klasse für das Wettersymbol.
-- Für die Details erstelle einen weiteren **Container** mit der passenden ID.
-  - In diesen **Container** kommen zwei **Absatz**-Elemente:
-    - Eines für die Beschreibung der Wetterlage (mit passender ID)
-    - Eines für die aktuelle Temperatur (mit passender ID)
-- Achte darauf, dass alle IDs exakt so geschrieben werden wie in der Aufgabenstellung.
-
-</details>
-
-
-
-#### Einen **Container** (Weitere Wetterdetails) mit der ID: `current-details`
-- Erstelle einen **Container** mit der Klasse `detail-item`.
-  - Erstelle ein `<span>` mit der Klasse `detail-label` und dem Inhalt `Luftfeuchtigkeit`.
-  - Erstelle ein zweites `<span>` mit der ID `humidity`.  
-
-- Erstelle einen weiteren **Container** mit der Klasse `detail-item`.
-  - Erstelle ein `<span>` mit der Klasse `detail-label` und dem Inhalt `Luftdruck`.
-  - Erstelle ein zweites `<span>` mit der ID `pressure`.
-
-- Erstelle einen letzten **Container** mit der Klasse `detail-item`.
-  - Erstelle ein `<span>` mit der Klasse `detail-label` und dem Inhalt `Wind`.
-  - Erstelle ein zweites `<span>` mit der ID `wind`.
-
-
-<details>
-<summary><strong>Hinweise</strong></summary>
-
-- Erstelle einen **Container** für weitere Wetterdetails und vergib die passende ID.
-- Für jede Wetter-Information (Luftfeuchtigkeit, Luftdruck, Wind) erstelle jeweils einen Untercontainer mit einer bestimmten Klasse.
-- In jeden dieser Untercontainer kommen zwei Inline-Elemente (`<span>`):
-  - Das erste `<span>` bekommt die Klasse für die Beschriftung und enthält den passenden Text (z.B. "Luftfeuchtigkeit").
-  - Das zweite `<span>` bekommt die passende ID für die jeweilige Wetter-Information (z.B. `humidity`, `pressure`, `wind`). Es enthält keinen Text.
-- Die Reihenfolge ist: Beschriftung zuerst, dann der Wert.
-
-</details>
-
-
-
-**Ressourcen:**
-- [Container-Elemente: div](https://developer.mozilla.org/de/docs/Web/HTML/Element/div)
-- [Textabsätze: p](https://developer.mozilla.org/de/docs/Web/HTML/Element/p)
-- [Inline-Textformatierung: span](https://developer.mozilla.org/de/docs/Web/HTML/Element/span) -->
-
 ---
 
 ### Aufgabe 6: Bereich für die 3-Tage-Vorhersage erstellen
@@ -315,6 +249,8 @@ Der Name deiner App steht zwischen dem öffnenden und schließenden Tag.
 2. Erstelle unter diesem Kommentar einen **Container** mit der ID `forecast-container`.
 3. Füge innerhalb dieses Containers eine Überschrift dritter Ebene mit dem Text "3-Tage Vorhersage" hinzu.
 4. Erstelle innerhalb des containers einen weiteren leeren **Container** mit der ID `forecast-cards`, in den später die Vorhersagekarten eingefügt werden. Dieser **Container** enthält noch keinen Inhalt.
+
+Speichere deine Änderungen mit dem Tastenkürzel `Strg + S`!
 
 <br>
 
